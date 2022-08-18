@@ -1,4 +1,16 @@
-<div class="card-group">
+<div *ngIf="loading" class="alert alert-info" role="alert">
+    <h4 class="alert-heading">Loading...</h4>
+    <p class="mb-o"></p>
+</div>
+
+<div *ngIf="error" class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Error!</h4>
+    <pre>
+        {{error | json}}
+    </pre>
+</div>
+
+<div *ngIf="!loading "class="card-group">
     <div *ngFor="let user of users" class="card">
       <img [src]="user.avatar" class="card-img-top">
       <div class="card-body">
